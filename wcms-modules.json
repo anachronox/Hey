@@ -3,11 +3,11 @@
     "themes": {
         "hey": {
             "name": "Hey",
-            "repo": "https://github.com/anachronox/hey/tree/main",
-            "zip": "https://github.com/anachronox/hey/archive/main.zip",
+            "repo": "https://github.com/anachronox/Hey/tree/main",
+            "zip": "https://github.com/anachronox/Hey/archive/main.zip",
             "summary": "A minimalist theme for writers and bloggers.",
             "version": "3.4.3",
-            "image": "https://raw.githubusercontent.com/anachronox/hey/main/preview.jpg"
+            "image": "https://raw.githubusercontent.com/anachronox/Hey/main/preview.jpg"
         }
     }
 }
