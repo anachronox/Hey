@@ -1,0 +1,584 @@
+:root {
+    --color-head: #1d1d1d;
+    --color-text: #4d4d4d;
+    --color-back: #fff;
+    --color-accent: #ececec;
+    --color-primary: #fd2d50;
+    --rad: .5rem;
+    --size: 1rem;
+    --size-md: 1.5rem;
+    --size-logo: 8rem;
+    --content: 41rem;
+    --serif: Georgia, "Times New Roman", Times, serif; 
+}
+
+
+/*** INITIAL SETUP ***/
+
+* {box-sizing: border-box;}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Page top border */
+html:before {
+    content: '';
+    background-color: var(--color-primary);
+    height: .25rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    background-color: var(--color-back);
+    color: var(--color-text);
+    cursor: default;
+    margin: 0 auto;
+    max-width: var(--content);
+    padding: 25vh var(--size-md) var(--size-logo);
+}
+
+
+/*** TYPOGRAPHY ***/
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-head);
+    margin: 0 0 var(--size) 0;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.6;
+    opacity: .8;
+}
+
+h5 {
+    font-size: .875rem;
+    font-weight: normal;
+    line-height: 1.2;
+    text-transform: uppercase;
+    opacity: .8;
+}
+
+h6 {
+    font-size: .75rem;
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+p {margin: calc(var(--size) * 2) 0;}
+
+main > h1:first-child {font-size: 3rem;}
+
+h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {margin-top: 0;}
+
+small {font-size: .875rem;}
+
+blockquote {
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 1.2;
+    margin: calc(var(--size) * 2) 0;
+}
+
+blockquote + cite {
+    display: block;
+    margin: calc(var(--size-md) * -1) 0 calc(var(--size) * 2);
+}
+
+ul, ol {
+    margin: var(--size) 0;
+    padding-left: var(--size);
+}
+
+nav ul, nav ol {padding-left: 0;}
+
+nav li, nav ul li, nav ol li {list-style-type: none;}
+
+u {
+    box-shadow: 0 1px 0 0 var(--color-primary);
+    padding-bottom: .125rem;
+    text-decoration: none;
+}
+
+a {
+    box-shadow: 0 1px 0 0 var(--color-text);
+    color: var(--color-head);
+    text-decoration: none;
+    padding-bottom: .125rem;
+}
+
+a:hover {
+    box-shadow: 0 1px 0 0 var(--color-accent);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+mark {
+    background: var(--color-primary);
+    color: var(--color-back);
+    padding: 0 .25rem .125rem;
+}
+
+code {color: var(--color-primary);}
+
+pre {white-space: pre-wrap;}
+
+
+/*** ELEMENTS ***/
+
+/* Figure, image, hr */
+figure {margin: 0;}
+
+figcaption {
+    text-align: center;
+    margin: calc(var(--size-md) * -1) var(--size) var(--size-md);
+    opacity: .8;
+}
+
+img {
+    border-radius: var(--rad);
+    display: block;
+    margin: 0 0 calc(var(--size) * 2) 0;
+    max-width: 100%;
+}
+
+hr {
+    background-color: var(--color-accent);
+    border: 0;
+    display: block;
+    height: 1px;
+    margin: calc(var(--size) * 2) 0;
+}
+
+/* Button, input, keyboard */
+button, .button, input, kbd {
+    background: transparent;
+    font-family: inherit;
+    font-size: var(--size);
+    border: 1px solid var(--color-accent);
+    border-radius: calc(var(--rad) / 2);
+    color: var(--color-head);
+    display: inline-block;
+    margin: 0 .125rem .125rem 0;
+    padding: calc(var(--size) / 4) calc(var(--size) / 2);
+    text-decoration: none;
+}
+
+/* Button inside p and input focus */
+p button, p .button, p kbd {padding: 0 calc(var(--size) / 2);}
+
+input:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 4px aliceblue;
+}
+
+/* Details:
+   used for hamburger menu too with class hey-cat
+*/
+details {
+    border: 1px solid var(--color-accent);
+    border-radius: calc(var(--rad) / 2);
+    margin: var(--size) 0;
+    padding: calc(var(--size-md) / 2);
+}
+
+details[open] {box-shadow: 0 .25rem 2rem rgba(0,0,0,0.15);}
+
+details > *:nth-child(2) {
+    border-top: 1px solid var(--color-accent);
+    margin-top: var(--size);
+    padding-top: calc(var(--size) / 2);
+}
+
+details[open] > *:last-child {margin-bottom: 0;}
+
+details p {margin:  0 0 var(--size);}
+
+details summary {
+    cursor: pointer;
+    margin: calc(var(--size-md) / 2 * -1);
+    padding: calc(var(--size-md) / 2);
+}
+
+details summary::marker {color: var(--color-primary);}
+
+details[open] summary ~ * {animation: anima ease-in-out .5s;}
+
+@keyframes anima {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Table basic */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: var(--size) 0;
+}
+
+tr {
+    border-bottom: 1px solid var(--color-accent);
+    text-align: left;
+}
+
+tr:nth-child(odd) td {background: var(--color-accent);}
+
+tr:hover td {
+    background: var(--color-primary);
+    color:var(--color-back);
+}
+
+th {
+    font-size: .75rem;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+th, td {padding: calc(var(--size) / 2);}
+
+/* Table inside div class .table for overflow issue */
+.table {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* iframe initial set to 100% width */
+iframe {
+    border-radius: var(--rad);
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden;
+}
+
+/** Youtube image link - insted of iframe embed **/
+.youtube {
+    background-color: black;
+    border-radius: var(--rad);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 0 0 calc(var(--size) * 2) 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+/* Youtube title */
+.youtube span {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0));
+    color: var(--color-back);
+    font-size: 16px;
+    padding: 1.5rem 1.5rem 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 30;
+}
+
+/* Youtube image cover */
+.youtube img {
+    display: block;
+    margin: 0;
+    filter: opacity(.8);
+}
+
+/* Youtube play triangle */
+.youtube:before {
+    content: '';
+    background: var(--color-back);
+    clip-path: polygon(100% 50%, 0% 100%, 0% 0%);
+    display: block;
+    margin-left: 4px;
+    width: 18px;
+    height: 20px;
+    position: absolute;
+    z-index: 20;
+}
+
+/* Youtube play red */
+.youtube:after {
+    content: '';
+    background: var(--color-primary);
+    border-radius: 8px;
+    display: block;
+    width: 68px;
+    height: 48px;
+    position: absolute;
+    z-index: 10;
+}
+
+
+/*** LAYOUT ELEMENTS ***/
+
+/** Header details menu, inherited from details **/
+header details {
+    position: fixed;
+    top: calc(var(--size) / 2);
+    right: calc(var(--size) / 2);
+    background-color: var(--color-back);
+    border: 0;
+    margin: 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    z-index: 40;
+}
+
+header details[open] {max-width: 320px;}
+
+details > *:nth-child(2) {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+header details summary {
+    display: block;
+    font-size: var(--size-md);
+    line-height: 1;
+    text-align: right;
+}
+
+header details summary:before, 
+header details summary:after {
+    content:'';
+    background-color: var(--color-text);
+    display: block;
+    margin: 4px 0 4px auto;
+    width: 24px;
+    height: 3px;
+}
+  
+header details summary:after {width: 16px;}
+
+/* Nav three dots */
+header details summary span {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Logo circle and title */
+.logo {
+    display: block;
+    background-color: var(--color-primary);
+    background-size: cover;
+    background-position: center center;
+    border-radius: var(--size-logo);
+    /*box-shadow: 0 0 0 .25rem var(--color-back);*/
+    width: var(--size-logo);
+    height: var(--size-logo);
+    margin-bottom: calc(var(--size) * 3);
+}
+
+/* Logo background gradient: optional *
+.logo:before {
+    content: '';
+    background-image: conic-gradient(from 45deg, var(--color-primary), var(--color-text), var(--color-head), var(--color-primary));
+    display: block;
+    border-radius: var(--size-logo);
+    height: var(--size-logo);
+    width: var(--size-logo);
+    position: relative;
+    z-index: -1;
+}
+*/
+
+.logo span {
+    position: absolute;
+    top: calc(var(--size) / 2);
+    left: calc(var(--size) / 2);
+    color: var(--color-text);
+    line-height: 1.2;
+    max-width: 20ch;
+    opacity: .6;
+    padding: calc(var(--size-md) / 2);
+    text-align: left;
+}
+
+/** 404 and generated pages **/
+center {text-align: left !important;}
+.winput-group br {display: none;}
+
+/** Footer **/
+footer {
+    border-top: 1px solid var(--color-accent);
+    margin-top: var(--size-logo);
+    padding-top: var(--size-logo);
+}
+
+footer .hey-cat ul li {
+    font-size: var(--size);
+    opacity: .8;
+}
+
+footer .hey-cat ul, footer .hey-cat ul li {margin: calc(var(--size) / 2) 0;}
+
+
+/*** BLOG ***/
+
+/** Blog post card **/
+.post.card {
+    background: transparent;
+    display: block;
+    margin: 0 0 var(--size);
+    position: relative;
+    width: 100%;
+}
+
+.post.card h3 {
+    border-radius: 0;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0 0 var(--size) 0;
+    padding: 0 0 .125rem 0;
+    width: calc(100% - 10ch);
+}
+
+.post.card:hover h3 {box-shadow: 0 1px 0 0 var(--color-text);}
+
+.post.card .meta {
+    border: 0;
+    display: inline-block;
+    margin: 0;
+    font-size: var(--size);
+    padding: 0;
+    text-align: right;
+    vertical-align: top;
+    width: 10ch;
+}
+
+/* Post description hidden. 
+To enable set display: block, opacity: .8, visiblity: visible */
+.post.card .description {
+    display: none;
+    font-size: .875rem;
+    margin: calc(var(--size) * -1) 0 var(--size-md) 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
+    text-overflow: ellipsis;
+    visibility: hidden;
+    white-space: nowrap;
+    width: calc(100% - 14ch);
+}
+
+.post.card .description + .text-right {
+    color: transparent;
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* Post - Create new button */
+main > .text-right:first-child {margin-bottom: var(--size);}
+main > .text-right:first-child .btn {
+    border: 1px solid var(--color-accent);
+    box-shadow: none !important;
+}
+
+
+/** Blog post **/
+.post .meta {margin: 0 0 calc(var(--size) * 2) 0;}
+
+/* Back to blog button */
+.post .body > *:not(p):last-child {margin-bottom: 0;}
+
+.post + .text-left {margin-top: var(--size-md);}
+
+.post + .text-left .btn {
+    border-radius: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0 0 .125rem 0;
+}
+
+.post + .text-left br {display: none;}
+
+
+/* Remove box-shadow outline on elements */
+.logo, .logo:hover, 
+.post.card, .post.card .description + .text-right, 
+button, .button, .button:hover, kbd, .youtube {
+    box-shadow: none !important;
+}
+
+
+/*** ADITTIONAL ELEMENTS ***/
+
+/* Post category tag:
+   add first inside post body as div > a.button to display category tag alongside date tag
+*/
+.post .body div:first-child {margin: calc(var(--size) * -3.75) 0 calc(var(--size) * 2) 12ch;}
+
+.post .body div:first-child a {padding: 0 calc(var(--size) / 2);}
+
+
+/* Custom category list::
+   handy for creating category pages similar to Blog list without date tag
+*/
+.hey-cat li {
+    font-size: 1.2rem;
+    margin: 0 0 var(--size) 0;
+    padding: 0 0 .125rem 0;
+}
+
+.hey-cat a {
+    color: var(--color-head);
+    box-shadow: none;
+    display: block;
+}
+
+.hey-cat a:hover {
+    color: var(--color-head);
+    box-shadow: 0 1px 0 0 var(--color-text);
+}
+
+/* Additional content border */
+main > hr {height: 0;}
+
+/* Selection color */
+::selection {
+    background-color: var(--color-head);
+    color: var(--color-back);
+}
